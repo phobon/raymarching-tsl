@@ -30,7 +30,7 @@ pnpm build
 
 ## Credits
 
-- Raymarching starter in GLSL by (kishimisu)[https://www.shadertoy.com/view/MfX3WH]
+- Raymarching starter in GLSL by [kishimisu](https://www.shadertoy.com/view/MfX3WH)
 
 ## Misc
 
