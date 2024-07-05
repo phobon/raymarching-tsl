@@ -1,0 +1,6 @@
+build/*
+dist/*
+public/*
+node_modules/*
+package.json
+*.log
