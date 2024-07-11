@@ -7,6 +7,7 @@ export default defineConfig({
       target: "esnext",
     },
   },
+  base: './',
   build: {
     target: "esnext",
   },

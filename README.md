@@ -4,9 +4,9 @@ An introduction to Raymarching using the power of Signed Distance Fields (SDFs) 
 
 ![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
 
-[Article on Codrops](https://tympanus.net/codrops/?p=)
+[Tutorial on Codrops](https://tympanus.net/codrops/?p=78977)
 
-[Demo](http://tympanus.net/Development/.../)
+[Demo](http://tympanus.net/Tutorials/LiquidRaymarching/)
 
 ## Installation
 

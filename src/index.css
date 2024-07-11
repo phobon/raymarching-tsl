@@ -9,7 +9,7 @@
   --color-text: #fff;
   --color-bg: #000;
   --color-link: #aaa;
-  --color-link-hover: #000;
+  --color-link-hover: #fff;
   --page-padding: 1.5rem;
 }
 
@@ -118,7 +118,7 @@ a:focus-visible {
   pointer-events: none;
   justify-items: start;
   grid-template-columns: auto auto;
-  grid-template-areas: 'title' 'archive' 'back' 'github' 'sub' 'sponsor' 'demos' 'tags' 'hire';
+  grid-template-areas: 'title' 'archive' 'back' 'github' 'sponsor' 'tags';
 }
 
 .frame #cdawrap {
@@ -155,6 +155,8 @@ a:focus-visible {
 
 .frame__tags {
   grid-area: tags;
+  display: flex;
+  gap: 1rem;
 }
 
 .frame__hire {
@@ -200,11 +202,13 @@ a:focus-visible {
     grid-template-columns: auto auto auto auto 1fr;
     grid-template-rows: auto auto;
     align-content: space-between;
-    grid-template-areas: 'title back archive github sponsor' 'tags demos demos hire sub';
+    grid-template-areas: 'title back archive github sponsor' 'tags tags tags ... ...';
   }
-  .frame #cdawrap,
-  .frame__sub {
+  .frame #cdawrap {
     justify-self: end;
+  }
+  .frame__title {
+    margin-right: 4rem;
   }
   .content {
     min-height: 100vh;
