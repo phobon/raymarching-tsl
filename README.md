@@ -2,7 +2,7 @@
 
 An introduction to Raymarching using the power of Signed Distance Fields (SDFs) and simple lighting to create impressive liquid shape effects by [Ben McCormick](http://phobon.io).
 
-![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
+![Liquid Raymarching](https://tympanus.net/codrops/wp-content/uploads/2024/07/metaballs.jpg)
 
 [Tutorial on Codrops](https://tympanus.net/codrops/?p=78977)
 
