@@ -126,17 +126,17 @@ const raymarch = tslFn(() => {
   loop({ start: 1, end: 80 }, () => {
     const d = sdf(ray) // current distance to the scene
 
-    t.addAssign(d) // "march" the ray
+    t.addAssign(d.mul(0.8)) // slightly reduce the marching step
 
     ray.assign(rayOrigin.add(rayDirection.mul(t))) // position along the ray
 
     // If we're close enough, it's a hit, so we can do an early return
-    If(d.lessThan(0.001), () => {
+    If(d.lessThan(0.005), () => { // increase threshold
       Break()
     })
 
     // If we've travelled too far, we can return now and consider that this ray didn't hit anything
-    If(t.greaterThan(100), () => {
+    If(t.greaterThan(50), () => { // reduce maximum distance
       Break()
     })
   })
