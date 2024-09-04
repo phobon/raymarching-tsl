@@ -1,15 +1,15 @@
 import { useThree } from '@react-three/fiber'
 
-import { MeshBasicNodeMaterial, float, loop, If, Break, tslFn, viewportResolution, uv, vec3 } from 'three/nodes'
+import { MeshBasicNodeMaterial, float, Loop, If, Break, Fn, viewportResolution, uv, vec3 } from 'three/tsl'
 
 const raymarchMaterial = new MeshBasicNodeMaterial()
 
-const sdf = tslFn(([pos]) => {
+const sdf = Fn(([pos]) => {
   // This is our main "scene" where objects will go, but for now return 0
   return float(0)
 })
 
-const lighting = tslFn(([ro, r]) => {
+const lighting = Fn(([ro, r]) => {
   // Ambient light
   const ambient = vec3(0.2)
 
@@ -18,7 +18,7 @@ const lighting = tslFn(([ro, r]) => {
   return finalColor
 })
 
-const raymarch = tslFn(() => {
+const raymarch = Fn(() => {
   // Use frag coordinates to get an aspect-fixed UV
   const _uv = uv().mul(viewportResolution.xy).mul(2).sub(viewportResolution.xy).div(viewportResolution.y)
 
@@ -32,7 +32,7 @@ const raymarch = tslFn(() => {
   // Calculate the initial position of the ray - this var is declared here so we can use it in lighting calculations later
   const ray = rayOrigin.add(rayDirection.mul(t)).toVar()
 
-  loop({ start: 1, end: 80 }, () => {
+  Loop({ start: 1, end: 80 }, () => {
     const d = sdf(ray) // current distance to the scene
 
     t.addAssign(d) // "march" the ray

@@ -3,10 +3,10 @@ import { useThree } from '@react-three/fiber'
 import {
   MeshBasicNodeMaterial,
   float,
-  loop,
+  Loop,
   If,
   Break,
-  tslFn,
+  Fn,
   uv,
   vec3,
   timerLocal,
@@ -15,22 +15,22 @@ import {
   max,
   abs,
   viewportResolution,
-} from 'three/nodes'
+} from 'three/tsl'
 
 const raymarchMaterial = new MeshBasicNodeMaterial()
 
-const sdSphere = tslFn(([p, r]) => {
+const sdSphere = Fn(([p, r]) => {
   return p.length().sub(r)
 })
 
 const timer = timerLocal(1)
 
-const smin = tslFn(([a, b, k]) => {
+const smin = Fn(([a, b, k]) => {
   const h = max(k.sub(abs(a.sub(b))), 0).div(k)
   return min(a, b).sub(h.mul(h).mul(k).mul(0.25))
 })
 
-const sdf = tslFn(([pos]) => {
+const sdf = Fn(([pos]) => {
   const translatedPos = pos.add(vec3(sin(timer), 0, 0))
   const sphere = sdSphere(translatedPos, 0.5)
   const secondSphere = sdSphere(pos, 0.3)
@@ -38,7 +38,7 @@ const sdf = tslFn(([pos]) => {
   return smin(secondSphere, sphere, 0.3)
 })
 
-const raymarch = tslFn(() => {
+const raymarch = Fn(() => {
   // Use frag coordinates to get an aspect-fixed UV
   const _uv = uv().mul(viewportResolution.xy).mul(2).sub(viewportResolution.xy).div(viewportResolution.y)
 
@@ -52,7 +52,7 @@ const raymarch = tslFn(() => {
   // Calculate the initial position of the ray - this var is declared here so we can use it in lighting calculations later
   const ray = rayOrigin.add(rayDirection.mul(t)).toVar()
 
-  loop({ start: 1, end: 80 }, () => {
+  Loop({ start: 1, end: 80 }, () => {
     const d = sdf(ray) // current distance to the scene
 
     t.addAssign(d) // "march" the ray

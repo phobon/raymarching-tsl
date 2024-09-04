@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { AdaptiveDpr } from '@react-three/drei'
 
 import WebGPUCapabilities from 'three/examples/jsm/capabilities/WebGPU.js'
-import WebGPURenderer from 'three/examples/jsm/renderers/webgpu/WebGPURenderer.js'
+import { WebGPURenderer } from 'three/webgpu'
 import { ACESFilmicToneMapping, SRGBColorSpace } from 'three'
 
 const WebGPUCanvas = ({ webglFallback = true, frameloop = 'always', children, debug, ...props }) => {

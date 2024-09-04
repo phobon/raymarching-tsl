@@ -1,6 +1,6 @@
 import { useThree } from '@react-three/fiber'
 
-import { MeshBasicNodeMaterial, uv, vec3 } from 'three/nodes'
+import { MeshBasicNodeMaterial, uv, vec3 } from 'three/tsl'
 
 const raymarchMaterial = new MeshBasicNodeMaterial()
 
